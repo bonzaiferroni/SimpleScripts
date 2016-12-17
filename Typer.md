@@ -1,8 +1,8 @@
 # Typer
-Simple script for typing animations
+> Simple script for typing animations
 
 ## Suggested use
-Drop this onto a gameObject, change Messages size to some value greater than 0. Duration value determines how long the message will be displayed.
+Drop this onto a gameObject, change `Messages` size to some value greater than 0. `Duration` value determines how long the message will be displayed.
 
 ## Examples
 
