@@ -38,7 +38,8 @@ public class DofFocus : MonoBehaviour {
         return transform.position;
     }
 
-    private void OnDestroy() {
+    private void OnDestroy() 
+    {
         // return your focus value to what it was before the scene started
         var dof = post.depthOfField.settings;
         dof.focusDistance = defaultDistance;
