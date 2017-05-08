@@ -4,7 +4,7 @@ using UnityEngine.PostProcessing;
 public class DofFocus : MonoBehaviour {
     private PostProcessingProfile post;
     private float defaultValue;
-    [SerializeField] private bool mouseMode;
+    [SerializeField] private bool mouseMode; // will shoot the ray from where the mouse cursor lies, handy for testing
     [SerializeField] private float focusSpeed = 2f; // change in inspector to adjust rate of focus
 
     private void Start()
@@ -20,7 +20,7 @@ public class DofFocus : MonoBehaviour {
         ChangeFocus(distance);
     }
 
-    private void ChangeFocus(float distance) 
+    private void ChangeFocus(float distance)
     {
         var dof = post.depthOfField.settings;
         dof.focusDistance = Mathf.Lerp(dof.focusDistance, distance, Time.deltaTime * focusSpeed);
@@ -29,6 +29,7 @@ public class DofFocus : MonoBehaviour {
 
     private Vector3 FindTarget()
     {
+        // normally shoot ray from the center of the screen
         var ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2f, Screen.height / 2f));
         if (mouseMode) {
             // will shoot the ray from where the mouse cursor lies, handy for testing
@@ -42,7 +43,7 @@ public class DofFocus : MonoBehaviour {
         return transform.position;
     }
 
-    private void OnDestroy() 
+    private void OnDestroy()
     {
         // return your focus value to what it was before the scene started
         ChangeFocus(defaultValue);
