@@ -20,7 +20,8 @@ public class DofFocus : MonoBehaviour {
         ChangeFocus(distance);
     }
 
-    private void ChangeFocus(float distance) {
+    private void ChangeFocus(float distance) 
+    {
         var dof = post.depthOfField.settings;
         dof.focusDistance = Mathf.Lerp(dof.focusDistance, distance, Time.deltaTime * focusSpeed);
         post.depthOfField.settings = dof;
@@ -41,7 +42,8 @@ public class DofFocus : MonoBehaviour {
         return transform.position;
     }
 
-    private void OnDestroy() {
+    private void OnDestroy() 
+    {
         // return your focus value to what it was before the scene started
         ChangeFocus(defaultValue);
     }
